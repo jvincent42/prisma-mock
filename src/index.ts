@@ -311,7 +311,7 @@ const createPrismaMock = <P>(
           (isCreating || d[field.name] === null) &&
           (d[field.name] === null || d[field.name] === undefined)) {
           if (field.hasDefaultValue) {
-            if (typeof field.default === 'object') {
+            if (typeof field.default === 'object' && 'name' in field.default) {
               if (field.default.name === 'autoincrement') {
                 const key = `${prop}_${field.name}`
                 let m = autoincrement?.[key]
